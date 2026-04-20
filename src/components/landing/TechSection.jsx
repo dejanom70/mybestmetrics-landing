@@ -72,7 +72,7 @@ export default function TechSection() {
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b1e] via-[#0a0b1e]/90 to-[#0a0b1e]/70 z-10"></div>
                             <img 
-                                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693f2877a6fd077e20c26678/16fa12b8c_indicators-and-tools.png" 
+                                src="/legacy-backgrounds/16fa12b8c_indicators-and-tools.png" 
                                 alt="Outils de dessin trading" 
                                 className="w-full h-full object-cover"
                             />
@@ -85,7 +85,7 @@ export default function TechSection() {
                             </div>
                             <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">Outils de Dessin Familiers</h3>
                             <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-                                Fibonacci, Long/Short Position, Elliott Waves... Utilisez exactement les mêmes outils que sur votre plateforme d'analyse habituelle.
+                                Fibonacci, Long/Short Position, Trendlines... Utilisez exactement les mêmes outils que sur votre plateforme d'analyse habituelle.
                             </p>
                         </div>
                     </motion.div>
@@ -102,7 +102,7 @@ export default function TechSection() {
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b1e] via-[#0a0b1e]/90 to-[#0a0b1e]/70 z-10"></div>
                             <img 
-                                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693f2877a6fd077e20c26678/64d46e8d4_strategy.png" 
+                                src="/legacy-backgrounds/64d46e8d4_strategy.png" 
                                 alt="Indicateurs techniques trading" 
                                 className="w-full h-full object-cover"
                             />
@@ -115,7 +115,7 @@ export default function TechSection() {
                             </div>
                             <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">Indicateurs Techniques</h3>
                             <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
-                                Accédez à une bibliothèque complète d'indicateurs (RSI, MACD, Moyennes Mobiles) pour reproduire votre stratégie à l'identique.
+                                Accédez à une bibliothèque complète d'indicateurs (RSI, Ichimoku, Moyennes Mobiles) pour reproduire votre stratégie à l'identique.
                             </p>
                         </div>
                     </motion.div>
@@ -132,7 +132,7 @@ export default function TechSection() {
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b1e] via-[#0a0b1e]/90 to-[#0a0b1e]/70 z-10"></div>
                             <img 
-                                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/693f2877a6fd077e20c26678/42e90dbc8_economic-calendar.png" 
+                                src="/legacy-backgrounds/42e90dbc8_economic-calendar.png" 
                                 alt="Performance et rapidité" 
                                 className="w-full h-full object-cover"
                             />

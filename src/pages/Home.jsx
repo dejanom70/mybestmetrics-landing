@@ -5,6 +5,8 @@ import IntegrationsSection from '@/components/landing/IntegrationsSection';
 import DashboardSection from '@/components/landing/DashboardSection';
 import TechSection from '@/components/landing/TechSection';
 import PricingSection from '@/components/landing/PricingSection';
+import UpdatesSection from '@/components/landing/UpdatesSection';
+import ResponsiveSection from '@/components/landing/ResponsiveSection';
 import VideoModal from '@/components/landing/VideoModal';
 import { motion } from 'framer-motion';
 
@@ -12,18 +14,22 @@ export default function LandingPage() {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [showVideoModal, setShowVideoModal] = useState(false);
     const [currentVideo, setCurrentVideo] = useState({ src: '', title: '' });
+    const [zoomedImage, setZoomedImage] = useState({ src: '', alt: '' });
 
     useEffect(() => {
         document.title = 'MyBestMetrics - Journal de Trading Automatisé';
     }, []);
 
     const carouselImages = [
-        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/547d468c8_img1.png',
-        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/6cb2279ca_img2.png',
-        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/88e520e36_img3.png',
-        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/efd25b63f_img4.png',
-        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/c6c21bcd4_img5.png',
-        'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/9180ef24a_img6.png'
+        '/img/img1.png',
+        '/img/img2.png',
+        '/img/img3.png',
+        '/img/img4.png',
+        '/img/img5.png',
+        '/img/img6.png',
+        '/img/img7.png',
+        '/img/img8.png',
+        '/img/img9.png'
     ];
 
     useEffect(() => {
@@ -41,6 +47,14 @@ export default function LandingPage() {
     const closeVideoModal = () => {
         setShowVideoModal(false);
         setCurrentVideo({ src: '', title: '' });
+    };
+
+    const openImageModal = (src, alt) => {
+        setZoomedImage({ src, alt });
+    };
+
+    const closeImageModal = () => {
+        setZoomedImage({ src: '', alt: '' });
     };
 
     const nextSlide = () => {
@@ -64,9 +78,33 @@ export default function LandingPage() {
             <DashboardSection />
 
             {/* Journal Personnalisable Section */}
-            <section id="features" className="py-12 md:py-24 bg-[#0a0b1e] relative overflow-hidden">
+            <section id="features" className="py-12 md:py-24 bg-[#0a0b1e] relative overflow-hidden scroll-mt-24">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                    <motion.div 
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="w-full md:w-1/2"
+                        >
+                            <div className="relative rounded-lg md:rounded-xl border border-gray-800 bg-[#050614] shadow-2xl overflow-hidden group">
+                                <div 
+                                    className="relative aspect-video w-full group cursor-pointer touch-manipulation" 
+                                    onClick={() => openVideoModal('/video/journal.mp4', 'Démo: Personnalisation du Journal')}
+                                    style={{ backgroundImage: "url('/img/img13.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}
+                                >
+                                    <div className="absolute inset-0 bg-[#0a0b1e]/20 flex items-center justify-center transition-opacity duration-300 group-hover:bg-[#0a0b1e]/50">
+                                        <div className="relative flex items-center justify-center">
+                                            <span className="absolute inline-flex h-12 w-12 md:h-16 md:w-16 rounded-full bg-indigo-500 opacity-20 animate-ping"></span>
+                                            <div className="relative w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                                                <svg className="w-4 h-4 md:w-5 md:h-5 text-white ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                         <motion.div 
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -105,30 +143,7 @@ export default function LandingPage() {
                             </ul>
                         </motion.div>
 
-                        <motion.div 
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="w-full md:w-1/2"
-                        >
-                            <div className="relative rounded-lg md:rounded-xl border border-gray-800 bg-[#050614] shadow-2xl overflow-hidden group">
-                                <div 
-                                    className="relative aspect-video w-full group cursor-pointer touch-manipulation" 
-                                    onClick={() => openVideoModal('https://www.youtube.com/embed/ZJpqfZjHbMI', 'Démo: Personnalisation du Journal')}
-                                    style={{ backgroundImage: "url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/c6c21bcd4_img5.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}
-                                >
-                                    <div className="absolute inset-0 bg-[#0a0b1e]/20 flex items-center justify-center transition-opacity duration-300 group-hover:bg-[#0a0b1e]/50">
-                                        <div className="relative flex items-center justify-center">
-                                            <span className="absolute inline-flex h-12 w-12 md:h-16 md:w-16 rounded-full bg-indigo-500 opacity-20 animate-ping"></span>
-                                            <div className="relative w-12 h-12 md:w-14 md:h-14 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-4 h-4 md:w-5 md:h-5 text-white ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                        
                     </div>
                 </div>
             </section>
@@ -149,8 +164,8 @@ export default function LandingPage() {
                             <div className="relative rounded-lg md:rounded-xl border border-gray-800 bg-[#050614] shadow-2xl overflow-hidden group">
                                 <div 
                                     className="relative aspect-video w-full group cursor-pointer touch-manipulation" 
-                                    onClick={() => openVideoModal('', 'Démo: Personnalisation du Thème (PREMIUM) - Bientôt Disponible')}
-                                    style={{ backgroundImage: "url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/547d468c8_img1.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}
+                                    onClick={() => openVideoModal('/video/personnalisation.mp4', 'Démo: Personnalisation du Thème (PREMIUM)')}
+                                    style={{ backgroundImage: "url('/img/img6.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}
                                 >
                                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 group-hover:bg-black/60">
                                         <div className="relative flex items-center justify-center">
@@ -208,12 +223,138 @@ export default function LandingPage() {
                 </div>
             </section>
 
+            {/* Backtesting Multi-Ecran Section */}
+            <section className="py-12 md:py-24 bg-[#0a0b1e] relative overflow-hidden">
+                <div className="absolute left-0 top-1/3 w-[320px] md:w-[520px] h-[320px] md:h-[520px] bg-gradient-to-br from-cyan-600/20 to-blue-600/10 blur-[110px] rounded-full pointer-events-none"></div>
+                <div className="absolute right-0 bottom-0 w-[260px] md:w-[420px] h-[260px] md:h-[420px] bg-gradient-to-tr from-indigo-600/15 to-purple-600/20 blur-[110px] rounded-full pointer-events-none"></div>
+
+                <div className="container mx-auto px-4 md:px-6 relative z-10">
+                    <div className="flex flex-col md:flex-row items-start gap-8 md:gap-14">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="w-full md:w-1/2 space-y-4 md:space-y-6"
+                        >
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 text-[10px] md:text-xs font-bold tracking-wide uppercase">
+                                Nouveau module premium
+                            </div>
+
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
+                                Backtesting multi-écran.<br />
+                                
+                            </h2>
+                            <span className="text-transparent text-lg md:text-xl lg:text-2xl bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Testez vite, apprenez mieux,
+                                progressez avec méthode</span>
+                            <p className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed">
+                                Reproduisez vos conditions réelles avec jusqu&apos;à 4 écrans synchronisés, vos indicateurs et vos dessins.
+                                Créez plusieurs sessions, sauvegardez-les et reprenez exactement là où vous vous êtes arrêté.
+                                Une calculatrice de trading intégrée vous aide aussi à calibrer vos entrées.
+                            </p>
+
+                            <div className="grid grid-cols-3 sm:grid-cols-3 gap-3 md:gap-4 pt-1">
+                                <div className="rounded-xl border border-cyan-500/30 bg-cyan-500/5 px-4 py-3">
+                                    <p className="text-cyan-300 text-lg md:text-xl font-bold">4</p>
+                                    <p className="text-gray-400 text-xs md:text-sm">écrans max</p>
+                                </div>
+                                <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3">
+                                    <p className="text-blue-300 text-lg md:text-xl font-bold">41</p>
+                                    <p className="text-gray-400 text-xs md:text-sm">actifs CFD</p>
+                                </div>
+                                <div className="rounded-xl border border-indigo-500/30 bg-indigo-500/5 px-4 py-3">
+                                    <p className="text-indigo-300 text-lg md:text-xl font-bold">∞</p>
+                                    <p className="text-gray-400 text-xs md:text-sm">sessions</p>
+                                </div>
+                            </div>
+
+                            <div className="rounded-2xl border border-cyan-500/30 bg-cyan-500/5 p-4 md:p-5">
+                                <p className="text-xs uppercase tracking-wide text-indigo-300 font-semibold">Stack d&apos;outils</p>
+                                <ul className="mt-3 space-y-2 text-sm text-gray-300">
+                                    <li className="flex items-start gap-2"><span className="text-indigo-400">•</span><span>41 actifs CFD couvrant les classes majeures (forex majeurs/mineurs, indices, commodités, crypto.)</span></li>
+                                    <li className="flex items-start gap-2"><span className="text-indigo-400">•</span><span>Sessions multiples avec sauvegarde/reprise</span></li>
+                                    <li className="flex items-start gap-2"><span className="text-indigo-400">•</span><span>Calculatrice trading: lot, montant, pourcentage</span></li>
+                                </ul>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.7, delay: 0.1 }}
+                            className="w-full md:w-1/2"
+                        >
+                            <div className="rounded-2xl border border-gray-800 bg-[#050614] p-3 md:p-4 shadow-2xl">
+                                <div className="grid grid-cols-2 gap-2 md:gap-3">
+                                    <div
+                                        className="relative group rounded-xl overflow-hidden border border-gray-700 cursor-zoom-in"
+                                        onClick={() => openImageModal('/img/backtest1.png', 'Backtesting multi-écran vue 1')}
+                                    >
+                                        <img src="/img/backtest1.png" alt="Backtesting multi-écran vue 1" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                    </div>
+                                    <div
+                                        className="relative group rounded-xl overflow-hidden border border-gray-700 cursor-zoom-in"
+                                        onClick={() => openImageModal('/img/backtest2.png', 'Backtesting multi-écran vue 2')}
+                                    >
+                                        <img src="/img/backtest2.png" alt="Backtesting multi-écran vue 2" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                    </div>
+                                    <div
+                                        className="relative group rounded-xl overflow-hidden border border-gray-700 cursor-zoom-in"
+                                        onClick={() => openImageModal('/img/backtest3.png', 'Backtesting multi-écran vue 3')}
+                                    >
+                                        <img src="/img/backtest3.png" alt="Backtesting multi-écran vue 3" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                    </div>
+                                    <div
+                                        className="relative group rounded-xl overflow-hidden border border-gray-700 cursor-zoom-in"
+                                        onClick={() => openImageModal('/img/backtest4.png', 'Backtesting multi-écran vue 4')}
+                                    >
+                                        <img src="/img/backtest4.png" alt="Backtesting multi-écran vue 4" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                                    </div>
+                                </div>
+
+                                <div className="mt-3 md:mt-4 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                    <div className="rounded-lg border border-gray-800 bg-[#0a0b1e] px-3 py-2 text-[10px] md:text-xs text-gray-300 text-center">Forex</div>
+                                    <div className="rounded-lg border border-gray-800 bg-[#0a0b1e] px-3 py-2 text-[10px] md:text-xs text-gray-300 text-center">Indices</div>
+                                    <div className="rounded-lg border border-gray-800 bg-[#0a0b1e] px-3 py-2 text-[10px] md:text-xs text-gray-300 text-center">Commodités</div>
+                                    <div className="rounded-lg border border-gray-800 bg-[#0a0b1e] px-3 py-2 text-[10px] md:text-xs text-gray-300 text-center">Crypto</div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
             {/* Replay Section */}
             <section className="py-12 md:py-24 bg-[#0d0f24] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
 
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    <motion.div 
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="w-full md:w-1/2"
+                        >
+                            <div className="relative rounded-lg md:rounded-xl border border-gray-800 bg-[#050614] shadow-2xl overflow-hidden">
+                                <div 
+                                    className="relative aspect-video bg-[#0a0b1e] w-full group cursor-pointer touch-manipulation" 
+                                    onClick={() => openVideoModal('/video/replay.mp4', 'Replay de Session (PREMIUM): EURUSD')}
+                                    style={{ backgroundImage: "url('/img/img12.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}
+                                >
+                                    <div className="absolute inset-0 bg-[#0a0b1e]/40 flex items-center justify-center transition-opacity duration-300 group-hover:bg-[#0a0b1e]/60">
+                                        <div className="relative flex items-center justify-center">
+                                            <span className="absolute inline-flex h-16 w-16 md:h-20 md:w-20 rounded-full bg-blue-500 opacity-20 animate-ping"></span>
+                                            <div className="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.5)] border border-white/20 group-hover:scale-110 transition-transform duration-300">
+                                                <svg className="w-5 h-5 md:w-6 md:h-6 text-white ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
                         <motion.div 
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -233,7 +374,7 @@ export default function LandingPage() {
                             
                             <p className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed">
                                 Pourquoi avez-vous pris ce trade ? Le graphique statique ne dit pas tout. 
-                                Avec notre module de <strong>Replay intégré</strong>, rejouez chaque tick de votre position comme si vous y étiez.
+                                Avec notre module de <strong>Replay intégré</strong>, rejouez chaque instant de votre position comme si vous y étiez.
                             </p>
 
                             <div className="space-y-4">
@@ -242,37 +383,13 @@ export default function LandingPage() {
                                         <svg className="w-4 h-4 md:w-5 md:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-semibold text-sm md:text-base">Replay tick-par-tick</h4>
+                                        <h4 className="text-white font-semibold text-sm md:text-base">Replay de vos positions</h4>
                                         <p className="text-xs md:text-sm text-gray-500">Visualisez l'hésitation du marché et votre réaction émotionnelle en temps réel.</p>
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
-
-                        <motion.div 
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="w-full md:w-1/2"
-                        >
-                            <div className="relative rounded-lg md:rounded-xl border border-gray-800 bg-[#050614] shadow-2xl overflow-hidden">
-                                <div 
-                                    className="relative aspect-video bg-[#0a0b1e] w-full group cursor-pointer touch-manipulation" 
-                                    onClick={() => openVideoModal('https://www.youtube.com/embed/IUjHLRIcdT0', 'Replay de Session (PREMIUM): EURUSD')}
-                                    style={{ backgroundImage: "url('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/68ecce9bafeaf6ac74736fbe/efd25b63f_img4.png')", backgroundSize: 'cover', backgroundPosition: 'center center' }}
-                                >
-                                    <div className="absolute inset-0 bg-[#0a0b1e]/40 flex items-center justify-center transition-opacity duration-300 group-hover:bg-[#0a0b1e]/60">
-                                        <div className="relative flex items-center justify-center">
-                                            <span className="absolute inline-flex h-16 w-16 md:h-20 md:w-20 rounded-full bg-blue-500 opacity-20 animate-ping"></span>
-                                            <div className="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.5)] border border-white/20 group-hover:scale-110 transition-transform duration-300">
-                                                <svg className="w-5 h-5 md:w-6 md:h-6 text-white ml-0.5 md:ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                        
                     </div>
                 </div>
                 </section>
@@ -280,6 +397,9 @@ export default function LandingPage() {
                 <TechSection />
 
                 <PricingSection />
+
+                <UpdatesSection />
+                <ResponsiveSection />
 
             {/* Footer */}
             <footer className="bg-[#050614] border-t border-gray-900 pt-8 md:pt-16 pb-8">
@@ -298,16 +418,17 @@ export default function LandingPage() {
                                 <li><a href="#features" className="hover:text-white transition">Fonctionnalités</a></li>
                                 <li><a href="#integrations" className="hover:text-white transition">Intégrations</a></li>
                                 <li><a href="#pricing" className="hover:text-white transition">Tarifs</a></li>
-                                <li><a href="#" className="hover:text-white transition">Mises à jour</a></li>
+                                <li><a href="#responsive-mobile" className="hover:text-white transition">Mobile</a></li>
+                                <li><a href="#mises-a-jour" className="hover:text-white transition">Mises à jour</a></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Légal</h4>
                             <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-500">
-                                <li><a href="#" className="hover:text-white transition">CGU / CGV</a></li>
-                                <li><a href="#" className="hover:text-white transition">Politique de confidentialité</a></li>
-                                <li><a href="#" className="hover:text-white transition">Mentions légales</a></li>
-                                <li><a href="#" className="hover:text-white transition">Contact</a></li>
+                                <li><a href="/CGV-CGU" className="hover:text-white transition">CGU / CGV</a></li>
+                                <li><a href="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</a></li>
+                                <li><a href="/mentions-legales" className="hover:text-white transition">Mentions légales</a></li>
+                                <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -330,10 +451,30 @@ export default function LandingPage() {
                             {/* ------------------------------------- */}
                         </div>
 
-                        <div className="flex gap-3 md:gap-4">
-                            <a href="#" className="text-gray-600 hover:text-white transition">
-                                <span className="sr-only">Twitter</span>
-                                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+                        <div className="flex gap-3 md:gap-4 items-center">
+                            <a href="#" className="text-gray-600 hover:text-white transition" aria-label="X (ex-Twitter)">
+                                <span className="sr-only">X</span>
+                                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                            </a>
+                            <a href="#" className="text-gray-600 hover:text-white transition" aria-label="Instagram">
+                                <span className="sr-only">Instagram</span>
+                                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </a>
+                            <a href="#" className="text-gray-600 hover:text-white transition" aria-label="Facebook">
+                                <span className="sr-only">Facebook</span>
+                                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                </svg>
+                            </a>
+                            <a href="#" className="text-gray-600 hover:text-white transition" aria-label="TikTok">
+                                <span className="sr-only">TikTok</span>
+                                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43V7.13a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.56z" />
+                                </svg>
                             </a>
                         </div>
                     </div>
@@ -365,6 +506,31 @@ export default function LandingPage() {
                 videoSrc={currentVideo.src}
                 title={currentVideo.title}
             />
+
+            {zoomedImage.src && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="fixed inset-0 z-[10000] bg-black/90 backdrop-blur-sm p-3 md:p-6 flex items-center justify-center"
+                    onClick={closeImageModal}
+                >
+                    <button
+                        onClick={closeImageModal}
+                        className="absolute top-3 right-3 md:top-6 md:right-6 p-2 rounded-full bg-black/60 hover:bg-black/80 border border-white/10 transition"
+                        aria-label="Fermer l'image"
+                    >
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                    <img
+                        src={zoomedImage.src}
+                        alt={zoomedImage.alt}
+                        className="max-w-full max-h-[90vh] object-contain rounded-lg border border-white/10 shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    />
+                </motion.div>
+            )}
         </div>
     );
 }

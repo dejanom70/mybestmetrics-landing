@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getMainAppLoginUrl } from '@/lib/mainAppUrl';
 
@@ -6,6 +7,7 @@ export default function Navigation() {
     const loginUrl = getMainAppLoginUrl();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,15 +27,33 @@ export default function Navigation() {
             }`}
         >
             <div className="container mx-auto px-4 md:px-6 py-4 md:py-6 flex justify-between items-center">
-                <a href="#" className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-                    MyBestMetrics
-                </a>
+            <Link
+                to="/"
+                onClick={closeMobileMenu}
+                className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent pb-1 inline-block"
+                style={{
+                    backgroundImage: 'linear-gradient(110deg, #22d3ee 0%, #0000ff 25%, #f472b6 75%, #22d3ee 100%)',
+                    backgroundSize: '200% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    animation: 'textShimmer 3s linear infinite',
+                }}
+                >
+                MyBestMetrics
+                {/* On injecte les keyframes directement ici pour que l'animation fonctionne */}
+                <style dangerouslySetInnerHTML={{ __html: `
+                    @keyframes textShimmer {
+                    to { background-position: -200% center; }
+                    }
+                `}} />
+            </Link>
                 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6 lg:space-x-8 text-gray-300 text-sm font-medium">
                     <a href="#features" className="hover:text-white transition">Fonctionnalités</a>
                     <a href="#integrations" className="hover:text-white transition">Intégrations</a>
                     <a href="#pricing" className="hover:text-white transition">Tarifs</a>
+                    <a href="#responsive-mobile" className="hover:text-white transition">Mobile</a>
                     <a href="#" className="opacity-50 cursor-not-allowed" title="Bientôt disponible">Blog</a>
                 </div>
 
@@ -72,9 +92,10 @@ export default function Navigation() {
                     className="md:hidden bg-[#11132b] border-t border-gray-800"
                 >
                     <div className="container mx-auto px-4 py-4 space-y-4">
-                        <a href="#features" className="block text-gray-300 hover:text-white transition py-2">Fonctionnalités</a>
-                        <a href="#integrations" className="block text-gray-300 hover:text-white transition py-2">Intégrations</a>
-                        <a href="#pricing" className="block text-gray-300 hover:text-white transition py-2">Tarifs</a>
+                        <a href="#features" onClick={closeMobileMenu} className="block text-gray-300 hover:text-white transition py-2">Fonctionnalités</a>
+                        <a href="#integrations" onClick={closeMobileMenu} className="block text-gray-300 hover:text-white transition py-2">Intégrations</a>
+                        <a href="#pricing" onClick={closeMobileMenu} className="block text-gray-300 hover:text-white transition py-2">Tarifs</a>
+                        <a href="#responsive-mobile" onClick={closeMobileMenu} className="block text-gray-300 hover:text-white transition py-2">Mobile</a>
                         <div className="pt-4 border-t border-gray-800 space-y-3">
                             <a href={loginUrl || '#'} className="block w-full text-left text-gray-300 hover:text-white transition py-2">
                                 Connexion

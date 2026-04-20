@@ -11,9 +11,9 @@ export default function PricingSection() {
             period: '/mois',
             features: [
                 { text: '1 Compte de Trading', included: true },
-                { text: 'Import Manuel', included: true },
+                { text: 'Import Manuel .csv ou .html', included: true },
                 { text: 'Dashboard Standard', included: true },
-                { text: 'Publicités', included: true },
+                { text: 'Market replay', included: false },
                 { text: 'Pas de Synchro Auto', included: false }
             ],
             cta: 'Créer un compte',
@@ -45,7 +45,7 @@ export default function PricingSection() {
             period: '/mois',
             features: [
                 { text: 'Tout le contenu du plan PRO', included: true, bold: true },
-                { text: 'Sans publicités', included: true },
+                { text: 'Backtesting multi-écran', included: true },
                 { text: 'Thème personnalisable (votre journal, vos couleurs)', included: true },
                 { text: 'Support Prioritaire', included: true }
             ],
@@ -55,7 +55,7 @@ export default function PricingSection() {
         }
     ], []);
     return (
-        <section id="pricing" className="py-12 md:py-24 bg-[#0a0b1e] relative">
+        <section id="pricing" className="py-12 md:py-24 bg-[#0a0b1e] relative scroll-mt-24">
             <div className="absolute inset-0 bg-gradient-to-b from-[#0d0f24] to-[#0a0b1e]"></div>
             
             <div className="container mx-auto px-4 md:px-6 relative z-10">

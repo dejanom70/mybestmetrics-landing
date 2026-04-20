@@ -29,8 +29,8 @@ export default function Hero({ carouselImages, currentSlide, nextSlide, prevSlid
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6 leading-tight px-2"
                 >
                     Arrêtez de trader à l'aveugle. Devenez rentable avec la Data.
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 mt-2">
-                        MyBestMetrics.
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 mt-2 pb-0 md:pb-2">
+                        MyBestMetrics
                     </span>
                 </motion.h1>
 
