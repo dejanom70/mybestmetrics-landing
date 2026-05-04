@@ -412,24 +412,27 @@ export default function LandingPage() {
                                 Automatisez votre routine, comprenez vos erreurs et devenez enfin rentable grâce à la puissance des données.
                             </p>
                         </div>
-                        <div>
-                            <h4 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Produit</h4>
-                            <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-500">
-                                <li><a href="#features" className="hover:text-white transition">Fonctionnalités</a></li>
-                                <li><a href="#integrations" className="hover:text-white transition">Intégrations</a></li>
-                                <li><a href="#pricing" className="hover:text-white transition">Tarifs</a></li>
-                                <li><a href="#responsive-mobile" className="hover:text-white transition">Mobile</a></li>
-                                <li><a href="#mises-a-jour" className="hover:text-white transition">Mises à jour</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Légal</h4>
-                            <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-500">
-                                <li><a href="/CGV-CGU" className="hover:text-white transition">CGU / CGV</a></li>
-                                <li><a href="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</a></li>
-                                <li><a href="/mentions-legales" className="hover:text-white transition">Mentions légales</a></li>
-                                <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
-                            </ul>
+                        <div className="grid grid-cols-2 gap-4 md:contents">
+                            <div>
+                                <h4 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Produit</h4>
+                                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-500">
+                                    <li><a href="#features" className="hover:text-white transition">Fonctionnalités</a></li>
+                                    <li><a href="#integrations" className="hover:text-white transition">Intégrations</a></li>
+                                    <li><a href="#pricing" className="hover:text-white transition">Tarifs</a></li>
+                                    <li><a href="#responsive-mobile" className="hover:text-white transition">Mobile</a></li>
+                                    <li><a href="#mises-a-jour" className="hover:text-white transition">Mises à jour</a></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h4 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Légal</h4>
+                                <ul className="space-y-1.5 md:space-y-2 text-xs md:text-sm text-gray-500">
+                                    <li><a href="/CGV-CGU" className="hover:text-white transition">CGU / CGV</a></li>
+                                    <li><a href="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</a></li>
+                                    <li><a href="/mentions-legales" className="hover:text-white transition">Mentions légales</a></li>
+                                    <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     

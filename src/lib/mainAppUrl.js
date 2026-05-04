@@ -25,3 +25,15 @@ export function withMainAppQuery(query) {
   const params = new URLSearchParams(query);
   return `${base}?${params.toString()}`;
 }
+
+/**
+ * Lien vers l’app avec intention post-auth (param `next`, allowlist côté app).
+ * @param {string} pathWithQuery chemin relatif, ex. `/Checkout?plan=plan1_annual`
+ */
+export function withMainAppNext(pathWithQuery) {
+  const base = getMainAppUrl();
+  if (!base) return '#';
+  const path = pathWithQuery.startsWith('/') ? pathWithQuery : `/${pathWithQuery}`;
+  const next = encodeURIComponent(path);
+  return `${base}/?next=${next}`;
+}

@@ -117,8 +117,8 @@ export default function Contact() {
                                     <option value="">Sélectionner</option>
                                     <option value="Visiteur">Visiteur</option>
                                     <option value="Gratuit">Compte gratuit</option>
-                                    <option value="Pro Mensuel">Pro Mensuel</option>
-                                    <option value="Pro Annuel">Pro Annuel</option>
+                                    <option value="Pro Essentiel">Pro Essentiel</option>
+                                    <option value="Pro Elite">Pro Elite</option>
                                 </select>
                             </label>
                         </div>
