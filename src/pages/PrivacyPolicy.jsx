@@ -32,9 +32,9 @@ export default function PrivacyPolicy() {
                     <section className="mt-8 space-y-3 text-gray-300 text-sm md:text-base leading-relaxed">
                         <h3 className="text-white text-lg md:text-xl font-semibold">1. RESPONSABLE DU TRAITEMENT</h3>
                         <p>
-                            Le responsable du traitement des données est [Votre Prénom et Nom], exerçant sous le statut de
-                            micro-entrepreneur, immatriculé(e) au RCS/RM de [Ville] sous le numéro SIRET [Votre numéro SIRET],
-                            et dont le siège social est situé au [Votre adresse postale].
+                            Le responsable du traitement des données est MAXIME Daniel, exerçant sous le statut de
+                            micro-entrepreneur, immatriculé(e) au RCS/RM de Paris sous le numéro SIRET [Votre numéro SIRET],
+                            et dont le siège social est situé au 59 rue de Ponthieu - Bureau 326, 75008 Paris, France.
                         </p>
                         <p>
                             Pour toute question relative à vos données, vous pouvez nous contacter à l&apos;adresse suivante :

@@ -25,9 +25,9 @@ export default function CGVCGU() {
                         <p>
                             Les presentes Conditions Generales de Vente et d&apos;Utilisation (ci-apres les « CGV/CGU ») regissent
                             l&apos;utilisation de l&apos;application SaaS MyBestMetrics (ci-apres « l&apos;Application »), accessible a
-                            l&apos;adresse mybestmetrics.com, editee par [Votre Prenom et Nom], exercant sous le statut de
-                            micro-entrepreneur, immatricule(e) au RCS/RM de [Ville] sous le numero SIRET [Votre numero SIRET],
-                            dont le siege social est situe au [Votre adresse postale] (ci-apres « l&apos;Editeur »).
+                            l&apos;adresse mybestmetrics.com, editee par MAXIME Daniel, exercant sous le statut de
+                            micro-entrepreneur, immatricule(e) au RCS/RM de Paris sous le numero SIRET [Votre numero SIRET],
+                            dont le siege social est situe au 59 rue de Ponthieu - Bureau 326, 75008 Paris, France (ci-apres « l&apos;Editeur »).
                         </p>
                         <p>
                             L&apos;Application s&apos;adresse exclusivement a des utilisateurs particuliers (B2C) agissant a des fins
@@ -55,7 +55,7 @@ export default function CGVCGU() {
                         <p>L&apos;Application est proposee selon un modele « Freemium » :</p>
                         <ul className="list-disc pl-5 space-y-2">
                             <li>
-                                Plan Gratuit : Acces limite a un (1) seul compte de trading manuel (sans synchronisation
+                                Plan Gratuit : Acces limite a un 1 seul compte de trading manuel (sans synchronisation
                                 automatique) et fonctionnalites restreintes.
                             </li>
                             <li>
@@ -68,7 +68,7 @@ export default function CGVCGU() {
                             synchronisation des comptes s&apos;effectue via un systeme de file d&apos;attente (Queue) gere par
                             l&apos;Editeur. De plus, l&apos;utilisation des fonctionnalites liees a l&apos;Intelligence Artificielle (chatbot,
                             analyse de compte) est strictement limitee a un usage raisonnable (« Fair Use »), fixe a un maximum
-                            de [Ex: 10] requetes par jour et par Utilisateur. L&apos;Editeur se reserve le droit de bloquer
+                            de 50 requetes par jour et par Utilisateur. L&apos;Editeur se reserve le droit de bloquer
                             temporairement l&apos;acces a l&apos;IA en cas de depassement abusif.
                         </p>
                     </section>
