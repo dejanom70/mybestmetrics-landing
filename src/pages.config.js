@@ -3,6 +3,7 @@ import CGVCGU from './pages/CGVCGU';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Contact from './pages/Contact';
 import MentionsLegales from './pages/MentionsLegales';
+import Disclaimer from './pages/Disclaimer';
 
 
 export const PAGES = {
@@ -11,6 +12,7 @@ export const PAGES = {
     "politique-confidentialite": PrivacyPolicy,
     "contact": Contact,
     "mentions-legales": MentionsLegales,
+    "disclaimer": Disclaimer,
 }
 
 export const pagesConfig = {

@@ -18,7 +18,7 @@ export default function MentionsLegales() {
                     <h2 className="text-2xl md:text-4xl font-bold leading-tight">
                         MENTIONS LÉGALES
                     </h2>
-                    <p className="text-gray-400 mt-3 text-sm md:text-base">Dernière mise à jour : [Date]</p>
+                    <p className="text-gray-400 mt-3 text-sm md:text-base">Dernière mise à jour : 04/05/2026</p>
 
                     <section className="mt-8 space-y-4 text-gray-300 text-sm md:text-base leading-relaxed">
                         <p>
@@ -33,13 +33,13 @@ export default function MentionsLegales() {
                         <h3 className="text-white text-lg md:text-xl font-semibold">1. ÉDITEUR DU SITE (Propriétaire)</h3>
                         <p>L&apos;application MyBestMetrics et son site web sont édités par :</p>
                         <ul className="list-none space-y-2 pl-0">
-                            <li><strong className="text-gray-200">Nom et Prénom :</strong> [Votre Prénom et Nom]</li>
+                            <li><strong className="text-gray-200">Nom et Prénom :</strong> Daniel MAXIME</li>
                             <li><strong className="text-gray-200">Statut juridique :</strong> Micro-entrepreneur</li>
                             <li><strong className="text-gray-200">Nom commercial :</strong> MyBestMetrics</li>
                             <li><strong className="text-gray-200">Numéro SIRET :</strong> [Votre numéro SIRET ou &quot;En cours d&apos;immatriculation&quot;]</li>
-                            <li><strong className="text-gray-200">Siège social :</strong> [Votre adresse postale ou l&apos;adresse de votre société de domiciliation]</li>
-                            <li><strong className="text-gray-200">Contact e-mail :</strong> [support@mybestmetrics.com]</li>
-                            <li><strong className="text-gray-200">Directeur de la publication :</strong> [Votre Prénom et Nom]</li>
+                            <li><strong className="text-gray-200">Siège social :</strong> 59 rue de Ponthieu , Bureau 326, 75008 Paris, France</li>
+                            <li><strong className="text-gray-200">Contact e-mail :</strong> [contact@mybestmetrics.com]</li>
+                            <li><strong className="text-gray-200">Directeur de la publication :</strong> Daniel MAXIME</li>
                         </ul>
                     </section>
 

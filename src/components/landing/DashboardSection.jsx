@@ -25,7 +25,7 @@ export default function DashboardSection() {
                         </p>
                         <ul className="space-y-2 md:space-y-3 text-gray-300">
                             {[
-                                'Plus de 20 widgets disponibles',
+                                'Plus de 40 widgets disponibles',
                                 'Redimensionnez et organisez à volonté',
                                 'Créez plusieurs templates (Scalping, Journal, Bilan)'
                             ].map((item, index) => (

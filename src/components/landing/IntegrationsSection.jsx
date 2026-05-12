@@ -5,7 +5,14 @@ const platforms = [
     { name: 'MT4', label: 'MetaTrader 4', logo: '/account_logo/mt4.png' },
     { name: 'MT5', label: 'MetaTrader 5', logo: '/account_logo/mt5.png' },
     { name: 'cTrader', label: 'cTrader', logo: '/account_logo/ctrader.webp' },
-    { name: 'TL', label: 'TradeLocker', logo: '/account_logo/tradelocker.webp' }
+    { name: 'TL', label: 'TradeLocker', logo: '/account_logo/tradelocker.webp' },
+    { 
+        name: 'Ninja', 
+        label: 'NinjaTrader', 
+        logo: '/account_logo/NinjaTrader.png',
+        link: 'https://account.ninjatrader.com/register?introducingPartner=MyBestMetrics' 
+    },
+    { name: 'Tradovate', label: 'Tradovate', logo: '/account_logo/tradovate.png' }
 ];
 
 export default function IntegrationsSection() {
@@ -28,29 +35,49 @@ export default function IntegrationsSection() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-12">
-                    {platforms.map((platform, index) => (
-                        <motion.div 
-                            key={platform.name}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                            className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-[#11132b] border border-gray-800 hover:border-purple-500/50 transition-all text-center"
-                        >
-                            <div className="w-12 h-12 md:w-16 md:h-16 mx-auto bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 overflow-hidden">
-                                <img
-                                    src={platform.logo}
-                                    alt={`${platform.label} logo`}
-                                    className="w-8 h-8 md:w-10 md:h-10 object-contain"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <h3 className="text-white font-semibold text-sm md:text-base">{platform.label}</h3>
-                            <p className="text-[10px] md:text-xs text-gray-500 mt-1">{platform.name === 'TL' ? 'Nouveau' : 'Synchro Auto'}</p>
-                        </motion.div>
-                    ))}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-6 mb-12">
+                    {platforms.map((platform, index) => {
+                        // On définit si c'est Ninja pour appliquer les styles spécifiques
+                        const isNinja = platform.name === 'Ninja';
+                        
+                        // Le composant de base devient un lien (a) si un lien existe, sinon une div
+                        const Wrapper = platform.link ? 'a' : 'div';
+                        const extraProps = platform.link ? { 
+                            href: platform.link, 
+                            target: "_blank", 
+                            rel: "noopener noreferrer" 
+                        } : {};
+
+                        return (
+                            <motion.div 
+                                key={platform.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                            >
+                                <Wrapper 
+                                    {...extraProps}
+                                    className={`block h-full p-4 md:p-2 rounded-xl md:rounded-2xl bg-[#11132b] border border-gray-800 hover:border-purple-500/50 transition-all text-center ${platform.link ? 'cursor-pointer' : ''}`}
+                                >
+                                    <div className=" overflow-visible w-12 h-12 md:w-16 md:h-16 mx-auto rounded-lg md:rounded-xl flex items-center justify-center mb-3 md:mb-4 overflow-hidden">
+                                        <img
+                                            src={platform.logo}
+                                            alt={`${platform.label} logo`}
+                                            // Ajout d'une condition scale-150 (ou 125) pour NinjaTrader
+                                            className={`object-contain transition-transform ${isNinja ? 'w-[70px] h-[70px] md:w-[80px] md:h-[80px] scale-[2.5]' : 'w-10 h-10 md:w-16 md:h-16'}`}
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                    <h3 className="text-white font-semibold text-sm md:text-base">{platform.label}</h3>
+                                    <p className="text-[10px] md:text-xs text-gray-500 mt-1">
+                                        {isNinja || platform.name === 'Tradovate' ? 'Nouveau' : 'Synchro Auto'}
+                                    </p>
+                                </Wrapper>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

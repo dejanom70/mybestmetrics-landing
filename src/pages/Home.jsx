@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navigation from '@/components/landing/Navigation';
 import Hero from '@/components/landing/Hero';
 import IntegrationsSection from '@/components/landing/IntegrationsSection';
+import CryptoExchangesSection from '@/components/landing/CryptoExchangesSection';
 import DashboardSection from '@/components/landing/DashboardSection';
 import TechSection from '@/components/landing/TechSection';
 import PricingSection from '@/components/landing/PricingSection';
@@ -75,6 +76,7 @@ export default function LandingPage() {
                 prevSlide={prevSlide}
             />
             <IntegrationsSection />
+            <CryptoExchangesSection />
             <DashboardSection />
 
             {/* Journal Personnalisable Section */}
@@ -430,12 +432,43 @@ export default function LandingPage() {
                                     <li><a href="/CGV-CGU" className="hover:text-white transition">CGU / CGV</a></li>
                                     <li><a href="/politique-confidentialite" className="hover:text-white transition">Politique de confidentialité</a></li>
                                     <li><a href="/mentions-legales" className="hover:text-white transition">Mentions légales</a></li>
+                                    <li><a href="/disclaimer" className="hover:text-white transition">Disclaimer</a></li>
                                     <li><a href="/contact" className="hover:text-white transition">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
+
+                    {/* --- DISCLAIMER OBLIGATOIRE --- */}
+                    <div className="border-t border-gray-900 pt-6 md:pt-8 mb-6 md:mb-8 space-y-2 md:space-y-2">
+                        <p className="text-gray-500 text-[9px] md:text-[10px] leading-relaxed">
+                            <span className="font-bold text-gray-400">Avertissement relatif aux risques :</span>{' '}
+                            Les opérations sur les marchés à terme et les marchés des changes comportent des risques importants et ne conviennent pas à tous les investisseurs. Un investisseur peut potentiellement perdre la totalité ou une partie de son investissement initial. Le capital-risque est l&apos;argent que l&apos;on peut perdre sans mettre en péril sa sécurité financière ou son style de vie. Seul le capital-risque doit être utilisé pour la négociation et seules les personnes disposant d&apos;un capital-risque suffisant doivent envisager de négocier. Les performances passées ne sont pas nécessairement indicatives des résultats futurs.
+                        </p>
+
+                        <p className="text-gray-500 text-[9px] md:text-[10px] leading-relaxed">
+                            <span className="font-bold text-gray-400">Avertissement relatif aux performances hypothétiques :</span>{' '}
+                            Les résultats des performances hypothétiques ont de nombreuses limitations inhérentes, dont certaines sont décrites ci-dessous. Aucune déclaration n&apos;est faite selon laquelle un compte réalisera ou est susceptible de réaliser des profits ou des pertes similaires à ceux indiqués ; en fait, il existe souvent des différences marquées entre les résultats de performance hypothétiques et les résultats réels obtenus par la suite par un programme de trading particulier. L&apos;une des limites des résultats de performance hypothétiques est qu&apos;ils sont généralement préparés avec le bénéfice du recul. De plus, la négociation hypothétique n&apos;implique pas de risque financier, et aucun résultat de négociation hypothétique ne peut complètement rendre compte de l&apos;impact du risque financier de la négociation réelle. Par exemple, la capacité à supporter les pertes ou à adhérer à un programme de négociation particulier malgré les pertes de négociation sont des points importants qui peuvent également affecter négativement les résultats de négociation réels. Il existe de nombreux autres facteurs liés aux marchés en général ou à la mise en œuvre d&apos;un programme de trading spécifique qui ne peuvent pas être entièrement pris en compte dans la préparation de résultats de performance hypothétiques et qui peuvent tous avoir un impact négatif sur les résultats de trading.
+                        </p>
+
+                        <p className="text-gray-500 text-[9px] md:text-[10px] leading-relaxed">
+                            <span className="font-bold text-gray-400">Informations sur la Live Trade Room :</span>{' '}
+                            Cette présentation a un but éducatif uniquement et les opinions exprimées sont uniquement celles du présentateur. Toutes les transactions présentées doivent être considérées comme hypothétiques et ne doivent pas être reproduites dans un compte de trading réel.
+                        </p>
+
+                        <p className="text-gray-500 text-[9px] md:text-[10px] leading-relaxed">
+                            <span className="font-bold text-gray-400">Avertissement relatif aux témoignages :</span>{' '}
+                            Les témoignages figurant sur ce site Web ne sont pas nécessairement représentatifs d&apos;autres clients et ne constituent pas une garantie de performances ou de succès futurs.
+                        </p>
+
+                        <p className="text-[10px] md:text-xs text-gray-600">
+                            <a href="/disclaimer" className="hover:text-gray-400 underline underline-offset-2 transition-colors">
+                                Lire le disclaimer complet
+                            </a>
+                        </p>
+                    </div>
+                    {/* --- FIN DISCLAIMER --- */}
+
                     <div className="border-t border-gray-900 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
                         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
                             <p className="text-gray-600 text-[10px] md:text-xs text-center md:text-left">
@@ -497,6 +530,17 @@ export default function LandingPage() {
                         <span className="text-sm md:text-lg font-bold text-gray-400">cTrader</span>
                         <div className="w-1 h-1 rounded-full bg-gray-700"></div>
                         <span className="text-sm md:text-lg font-bold text-gray-400">TradeLocker</span>
+                        <div className="w-1 h-1 rounded-full bg-gray-700"></div>
+                        <a 
+                        href="https://account.ninjatrader.com/register?introducingPartner=MyBestMetrics" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-sm md:text-lg font-bold text-gray-400 hover:text-white transition-colors cursor-pointer"
+                        >
+                            NinjaTrader
+                        </a>
+                        <div className="w-1 h-1 rounded-full bg-gray-700"></div>
+                        <span className="text-sm md:text-lg font-bold text-gray-400">Tradovate</span>
                         <div className="w-1 h-1 rounded-full bg-gray-700"></div>
                         <span className="text-sm md:text-lg font-bold text-gray-400">Prop Firms</span>
                     </div>
