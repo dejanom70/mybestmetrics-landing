@@ -28,7 +28,7 @@ export default function Hero({ carouselImages, currentSlide, nextSlide, prevSlid
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6 leading-tight px-2"
                 >
-                    Arrêtez de trader à l'aveugle. Devenez rentable avec la Data.
+                    Arrêtez de trader à l'aveugle. Devenez constant avec la Data.
                     <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 mt-2 pb-0 md:pb-2">
                         MyBestMetrics
                     </span>
@@ -40,7 +40,7 @@ export default function Hero({ carouselImages, currentSlide, nextSlide, prevSlid
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto mb-6 md:mb-10 leading-relaxed px-4"
                 >
-                    Le journal de trading automatisé propulsé par l'IA. Importez vos trades, analysez vos erreurs et boostez votre Winrate.
+                    Le journal de trading automatisé propulsé par l'IA. Importez vos trades, analysez vos erreurs et boostez vos résultats.
                 </motion.p>
 
                 <motion.div 

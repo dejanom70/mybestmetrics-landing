@@ -411,7 +411,7 @@ export default function LandingPage() {
                             <div className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">MyBestMetrics</div>
                             <p className="text-gray-500 text-xs md:text-sm leading-relaxed max-w-sm">
                                 La plateforme de journalisation de trading nouvelle génération. 
-                                Automatisez votre routine, comprenez vos erreurs et devenez enfin rentable grâce à la puissance des données.
+                                Automatisez votre routine, comprenez vos erreurs et devenez enfin constant grâce à la puissance des données.
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-4 md:contents">

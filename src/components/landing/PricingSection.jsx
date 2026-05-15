@@ -84,7 +84,7 @@ export default function PricingSection() {
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-white px-4">
                         Un investissement pour<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
-                            votre réussite.
+                        passer au niveau supérieur dans votre trading.
                         </span>
                     </h2>
                     <p className="text-gray-400 text-sm md:text-base lg:text-lg px-4">
