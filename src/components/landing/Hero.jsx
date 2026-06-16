@@ -26,10 +26,29 @@ export default function Hero({ carouselImages, currentSlide, nextSlide, prevSlid
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6 leading-tight px-2"
+                    className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 md:mb-6 leading-tight px-2"
                 >
-                    Arrêtez de trader à l'aveugle. Devenez constant avec la Data.
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 mt-2 pb-0 md:pb-2">
+                    Arrêtez de trader à l'aveugle. 
+                    <span className="block mt-1 md:mt-2">
+                        Devenez constant avec la Data.
+                    </span>
+                        {/* Logo avec effet de flottement infini et lueur */}
+                        <motion.img
+                            src="/logo_mbm.png"
+                            alt="logo mybestmetrics"
+                            className="block mx-auto my-8 relative w-full max-w-[200px] sm:max-w-[300px] object-contain drop-shadow-[0_0_50px_rgba(43,255,255,0.25)]"
+                            loading="lazy"
+                            animate={{ 
+                                // Keyframes : position de départ (0), point haut (-15px), retour au départ (0)
+                                y: [0, -10, 0],
+                            }}
+                            transition={{ 
+                                duration: 4,          // Temps en secondes pour faire un aller-retour
+                                repeat: Infinity,     // Répétition infinie
+                                ease: "easeInOut"     // Adoucit le mouvement en haut et en bas
+                            }}
+                        />
+                    <span className="block text-4xl sm:text-4xl md:text-5xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 mt-2 pb-0 md:pb-2">
                         MyBestMetrics
                     </span>
                 </motion.h1>

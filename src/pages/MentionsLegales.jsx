@@ -36,7 +36,7 @@ export default function MentionsLegales() {
                             <li><strong className="text-gray-200">Nom et Prénom :</strong> Daniel MAXIME</li>
                             <li><strong className="text-gray-200">Statut juridique :</strong> Micro-entrepreneur</li>
                             <li><strong className="text-gray-200">Nom commercial :</strong> MyBestMetrics</li>
-                            <li><strong className="text-gray-200">Numéro SIRET :</strong> [Votre numéro SIRET ou &quot;En cours d&apos;immatriculation&quot;]</li>
+                            <li><strong className="text-gray-200">Numéro SIRET :</strong> 814 020 426 00031</li>
                             <li><strong className="text-gray-200">Siège social :</strong> 59 rue de Ponthieu , Bureau 326, 75008 Paris, France</li>
                             <li><strong className="text-gray-200">Contact e-mail :</strong> [contact@mybestmetrics.com]</li>
                             <li><strong className="text-gray-200">Directeur de la publication :</strong> Daniel MAXIME</li>

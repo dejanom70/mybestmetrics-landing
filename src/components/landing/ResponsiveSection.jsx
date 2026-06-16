@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const highlights = [
     { title: 'Interface tactile', text: 'Gestes et navigation adaptés au pouce, sans compromis sur la densité d\'information.' },
@@ -7,7 +7,26 @@ const highlights = [
     { title: 'Performances fluides', text: 'Chargements et graphiques optimisés pour les petits écrans et les réseaux mobiles.' },
 ];
 
+// Tableau contenant les chemins de tes 4 captures d'écran
+const mobileScreenshots = [
+    '/img/mobile1.png',
+    '/img/mobile2.png',
+    '/img/mobile3.png',
+    '/img/mobile4.png'
+];
+
 export default function ResponsiveSection() {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    // Effet pour changer d'image automatiquement toutes les 4 secondes
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % mobileScreenshots.length);
+        }, 4000); // 4000ms = 4 secondes par image
+
+        return () => clearInterval(timer);
+    }, []);
+
     return (
         <section id="responsive-mobile" className="py-14 md:py-24 bg-[#050614] relative overflow-hidden scroll-mt-24">
             <div className="absolute inset-0 pointer-events-none">
@@ -74,59 +93,43 @@ export default function ResponsiveSection() {
                         className="w-full lg:w-1/2 flex justify-center"
                     >
                         <div className="relative w-full max-w-[320px]">
+                            {/* Le téléphone qui flotte */}
                             <motion.div
                                 animate={{ y: [0, -6, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                                className="relative mx-auto aspect-[9/19] w-[78%] rounded-[2rem] border border-white/10 bg-gradient-to-b from-[#151832] to-[#0a0b1e] p-2 shadow-[0_0_60px_rgba(139,92,246,0.25)]"
+                                className="relative mx-auto aspect-[9/19] w-[78%] rounded-[2.2rem] border border-white/15 bg-gradient-to-b from-[#151832] to-[#0a0b1e] p-2.5 shadow-[0_0_60px_rgba(139,92,246,0.25)]"
                             >
-                                <div className="absolute top-2 left-1/2 -translate-x-1/2 h-5 w-24 rounded-full bg-black/40" />
-                                <div className="mt-8 h-[calc(100%-2.5rem)] rounded-[1.35rem] border border-white/5 bg-[#0d1028] overflow-hidden flex flex-col">
-                                    <div className="h-9 flex items-center justify-between px-3 border-b border-white/5 bg-black/20">
-                                        <span className="h-2 w-12 rounded bg-white/10" />
-                                        <span className="h-2 w-8 rounded bg-emerald-500/40" />
-                                    </div>
-                                    <div className="flex-1 p-3 space-y-2">
-                                        <motion.div
-                                            className="h-16 rounded-lg bg-gradient-to-r from-violet-600/30 to-blue-600/20 border border-white/5"
-                                            animate={{ opacity: [0.7, 1, 0.7] }}
-                                            transition={{ duration: 3, repeat: Infinity }}
+                                {/* Poinçon de la caméra frontale */}
+                                <div className="absolute top-4 left-1/2 -translate-x-1/2 h-3.5 w-3.5 rounded-full bg-black z-30" />
+                                
+                                {/* Écran avec fondu enchaîné des captures */}
+                                <div className="relative h-full w-full rounded-[1.4rem] overflow-hidden bg-[#0d1028] z-20">
+                                    <AnimatePresence mode="wait">
+                                        <motion.img 
+                                            key={currentImageIndex} // Important pour que Framer Motion détecte le changement
+                                            src={mobileScreenshots[currentImageIndex]} 
+                                            alt={`MyBestMetrics Screen ${currentImageIndex + 1}`}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.4 }} // Vitesse du fondu
+                                            className="absolute inset-0 w-full h-full object-cover object-top"
+                                            loading="lazy"
                                         />
-                                        {[0.85, 0.65, 0.9].map((w, j) => (
-                                            <div
-                                                key={j}
-                                                className="h-2 rounded bg-white/10"
-                                                style={{ width: `${w * 100}%` }}
-                                            />
-                                        ))}
-                                        <div className="grid grid-cols-3 gap-2 pt-2">
-                                            {['PnL', 'Win', 'DD'].map((label) => (
-                                                <div key={label} className="rounded-md bg-white/5 border border-white/5 p-2 text-center">
-                                                    <div className="text-[9px] text-gray-500 uppercase tracking-wider">{label}</div>
-                                                    <div className="mt-1 h-3 w-8 mx-auto rounded bg-cyan-500/30" />
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div className="h-12 border-t border-white/5 flex items-center justify-around px-2 bg-black/25">
-                                        {[0, 1, 2, 3].map((k) => (
-                                            <motion.span
-                                                key={k}
-                                                className="h-8 w-8 rounded-lg bg-white/5 border border-white/5"
-                                                whileHover={{ scale: 1.08 }}
-                                                animate={{ opacity: [0.5, 1, 0.5] }}
-                                                transition={{ duration: 2.5, repeat: Infinity, delay: k * 0.35 }}
-                                            />
-                                        ))}
-                                    </div>
+                                    </AnimatePresence>
                                 </div>
                             </motion.div>
-                            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                                {[0, 1, 2].map((d) => (
-                                    <motion.span
-                                        key={d}
-                                        className="h-1.5 w-1.5 rounded-full bg-violet-400/60"
-                                        animate={{ scale: [1, 1.4, 1], opacity: [0.4, 1, 0.4] }}
-                                        transition={{ duration: 2, repeat: Infinity, delay: d * 0.3 }}
+
+                            {/* Les 3 petits points indicateurs sous le téléphone */}
+                            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                                {mobileScreenshots.map((_, index) => (
+                                    <span
+                                        key={index}
+                                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                                            currentImageIndex === index 
+                                            ? 'w-4 bg-violet-400' 
+                                            : 'w-1.5 bg-violet-400/30'
+                                        }`}
                                     />
                                 ))}
                             </div>

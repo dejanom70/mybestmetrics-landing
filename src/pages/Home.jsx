@@ -407,13 +407,26 @@ export default function LandingPage() {
             <footer className="bg-[#050614] border-t border-gray-900 pt-8 md:pt-16 pb-8">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
-                        <div className="md:col-span-2">
-                            <div className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">MyBestMetrics</div>
-                            <p className="text-gray-500 text-xs md:text-sm leading-relaxed max-w-sm">
-                                La plateforme de journalisation de trading nouvelle génération. 
-                                Automatisez votre routine, comprenez vos erreurs et devenez enfin constant grâce à la puissance des données.
-                            </p>
+                    <div className="md:col-span-2">
+                        {/* Ligne d'en-tête : Image + Titre côte à côte */}
+                        <div className="flex items-center gap-3 mb-3 md:mb-4">
+                            <img
+                                src="/logo_mbm.png" 
+                                alt="Logo MyBestMetrics"
+                                className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0 object-contain"
+                                loading="lazy"
+                            />
+                            <div className="text-xl md:text-2xl font-bold text-white">
+                                MyBestMetrics
+                            </div>
                         </div>
+
+                        {/* Description qui reste en dessous */}
+                        <p className="text-gray-500 text-xs md:text-sm leading-relaxed max-w-sm">
+                            La plateforme de journalisation de trading nouvelle génération. 
+                            Automatisez votre routine, comprenez vos erreurs et devenez enfin constant grâce à la puissance des données.
+                        </p>
+                    </div>
                         <div className="grid grid-cols-2 gap-4 md:contents">
                             <div>
                                 <h4 className="text-white font-bold mb-3 md:mb-4 text-sm md:text-base">Produit</h4>

@@ -17,6 +17,7 @@ export default function PricingSection() {
                     { text: '1 Compte de Trading', included: true },
                     { text: 'Import Manuel .csv ou .html', included: true },
                     { text: 'Dashboard Standard', included: true },
+                    { text: '500 Mo de stockage (environ 5000 captures TradingView)', included: true },
                     { text: 'Market replay', included: false },
                     { text: 'Pas de Synchro Auto', included: false },
                 ],
@@ -30,6 +31,7 @@ export default function PricingSection() {
                 description: isAnnual
                     ? 'Facturation annuelle — équivalent à 2 mois offerts.'
                     : 'Le socle pro pour progresser avec l’IA au quotidien.',
+                originalPrice: isAnnual ? '129€' : '12,90€',
                 price: isAnnual ? '79€' : '7,90€',
                 period: isAnnual ? '/an' : '/mois',
                 features: [
@@ -51,6 +53,7 @@ export default function PricingSection() {
                 description: isAnnual
                     ? 'Maximum de puissance, sans plafond IA ni stockage.'
                     : 'IA et stockage illimités, nouveautés en avant-première.',
+                originalPrice: isAnnual ? '149€' : '14,90€',
                 price: isAnnual ? '99€' : '9,90€',
                 period: isAnnual ? '/an' : '/mois',
                 features: [
@@ -167,8 +170,23 @@ export default function PricingSection() {
                                 </p>
                             </div>
                             <div className="mb-4 md:mb-6">
-                                <span className="text-3xl md:text-4xl font-bold text-white">{plan.price}</span>
-                                <span className={plan.highlighted ? 'text-gray-400' : 'text-gray-500'}>{plan.period}</span>
+                                {plan.originalPrice && (
+                                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-1 justify-center">
+                                        <span className="text-[10px] md:text-xs font-semibold uppercase tracking-wide text-emerald-400/90">
+                                            Tarifs de lancement <br />
+                                        </span>
+                                        <span className="text-[10px] md:text-xs font-semibold uppercase tracking-wide text-gray-400/90">
+                                            (valable jusqu'au 30 Octobre 2026)
+                                        </span>
+                                        
+                                        
+                                    </div>
+                                )}
+                                <span className="text-2xl md:text-2xl text-gray-500 line-through decoration-gray-500/80">
+                                            {plan.originalPrice}   
+                                        </span>
+                                <span className="text-3xl md:text-4xl font-bold text-white justify-center"> {plan.price}</span>
+                                <span className={plan.highlighted ? 'text-gray-400' : 'text-gray-500'} justify-center>{plan.period}</span>
                             </div>
                             <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8 flex-1">
                                 {plan.features.map((feature, i) => (
